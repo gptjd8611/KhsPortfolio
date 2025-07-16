@@ -1,0 +1,16 @@
+// src/assets/styles/main.scss
+@import "variables";
+@import "reset";
+@import "base";
+@import "buttons";
+@import "layout";
+@import "common";
+
+body {
+  background: linear-gradient(0deg, #000000, #191d24);
+  font-family: "Poppins";
+}
+
+h1 {
+  color: $primary-color;
+}

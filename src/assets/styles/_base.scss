@@ -1,0 +1,96 @@
+// 예: fonts 폴더에 폰트들이 있는 경우
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/poppins/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+// Pretendard
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-Thin.otf") format("opentype");
+  font-weight: 100; // Thin
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-ExtraLight.otf") format("opentype");
+  font-weight: 200; // ExtraLight
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-Light.otf") format("opentype");
+  font-weight: 300; // Light
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-Regular.otf") format("opentype");
+  font-weight: 400; // Regular
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-Medium.otf") format("opentype");
+  font-weight: 500; // Medium
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-SemiBold.otf") format("opentype");
+  font-weight: 600; // SemiBold
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard/Pretendard-Bold.otf") format("opentype");
+  font-weight: 700; // Bold
+  font-style: normal;
+}
+@font-face {
+  font-family: "Glitten";
+  src: url("../fonts/Glitten-Regular.otf") format("opentype");
+  font-weight: 500; // Bold
+  font-style: normal;
+}

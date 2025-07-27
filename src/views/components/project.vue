@@ -105,6 +105,7 @@ export default {
     const preoject = ref(null); // 섹션 참조
     const sliderContainer = ref(null); // 컨테이너 참조
     let scrollTriggerInstance = null;
+
     onMounted(() => {
       // GSAP 타임라인 생성
       gsap.registerPlugin(ScrollTrigger);
@@ -119,8 +120,11 @@ export default {
         scrollTrigger: {
           trigger: preoject.value,
           pin: true, // 섹션 고정
-          scrub: 0.5, // 스크롤과 부드럽게 동기화 (값 줄여 반응성 개선)
-          start: "top top", // 섹션이 뷰포트 상단에 닿을 때 시작
+          pinType: "fixed", // 🔥 핵심 추가
+          pinSpacing: true,
+          scrub: 0.6,
+          start: "top+=10 top",
+          anticipatePin: 2, // 🔥 여기가 핵심!
           end: () =>
             `+=${sliderContainer.value.scrollWidth - window.innerWidth + 100}`, // 추가 여유 공간
           invalidateOnRefresh: true, // 리사이즈 시 재계산

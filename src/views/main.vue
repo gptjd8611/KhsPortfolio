@@ -15,10 +15,8 @@
           <span ref="word2" class="main-word">my </span>
           <span ref="word3" class="main-word"> portfolio" </span>
         </p>
-        <!-- <button ref="ctaButton" class="cta-button">scroll</button> -->
       </div>
       <div class="main-content">
-        <!-- 배경 비디오 -->
         <video
           class="background-video"
           autoplay
@@ -101,7 +99,7 @@
         />
       </div>
     </div>
-    <about />
+    <about ref="about" />
     <project />
     <work />
     <contact />
@@ -134,12 +132,40 @@ export default {
 
     const title1 = ref(null);
     const title2 = ref(null);
-    const title3 = ref(null);
     const title4 = ref(null);
+    const title3 = ref(null);
+
+    const about = ref(null);
 
     onMounted(() => {
+      const aboutEl = about.value?.$el;
+      let hasScrolled = false;
+
+      // ✅ 휠 이벤트: 첫 휠에 한해 이동
+      const handleWheel = (e) => {
+        if (!hasScrolled && e.deltaY > 0) {
+          e.preventDefault();
+          hasScrolled = true;
+          aboutEl?.scrollIntoView({ behavior: "smooth" });
+          window.removeEventListener("wheel", handleWheel);
+        }
+      };
+      window.addEventListener("wheel", handleWheel, { passive: false });
+
       // GSAP 타임라인 생성
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // 커튼 올라간 후: 스크롤 가능하게 만들기
+          document.body.style.overflow = "auto";
+          document.documentElement.style.overflow = "auto";
+
+          // 커튼 요소 위치 제거
+          if (curtain.value) {
+            curtain.value.style.position = "static";
+            curtain.value.style.zIndex = "0";
+          }
+        },
+      });
 
       // 메인 타이틀: 위에서 아래로 슬라이드 + 페이드인
       tl.fromTo(
@@ -148,15 +174,6 @@ export default {
         { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
       );
 
-      // 서브 타이틀: 약간의 딜레이 후 페이드인
-      // tl.fromTo(
-      //   subTitle.value,
-      //   { opacity: 0 },
-      //   { opacity: 1, duration: 0.8, ease: "power2.out" },
-      //   "-=0.5" // 이전 애니메이션과 0.5초 겹치게
-      // );
-
-      // 각 단어에 순차적으로 애니메이션 적용
       tl.fromTo(
         word1.value,
         { opacity: 0, y: 20 },
@@ -256,6 +273,7 @@ export default {
       title2,
       title3,
       title4,
+      about,
     };
   },
 };

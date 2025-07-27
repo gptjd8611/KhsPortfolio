@@ -141,7 +141,7 @@ export default {
       const aboutEl = about.value?.$el;
       let hasScrolled = false;
 
-      // ✅ 휠 이벤트: 첫 휠에 한해 이동
+      // 휠 이벤트: 첫 휠에 한해 이동
       const handleWheel = (e) => {
         if (!hasScrolled && e.deltaY > 0) {
           e.preventDefault();
